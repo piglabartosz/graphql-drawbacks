@@ -2,7 +2,7 @@ package com.example.newhorizonsgraphql
 
 import com.expediagroup.graphql.server.operations.Query
 import org.springframework.stereotype.Component
-import java.time.Instant
+import java.time.ZonedDateTime
 
 @Component
 class MentorQuery : Query {
@@ -10,7 +10,7 @@ class MentorQuery : Query {
         name = "John",
         sessions = listOf(
             Session(
-                time = Instant.now(),
+                time = ZonedDateTime.now(),
                 secretData = "secret"
             )
         )
@@ -23,6 +23,6 @@ data class Mentor(
 )
 
 data class Session(
-    val time: Instant,
+    val time: ZonedDateTime,
     val secretData: String
 )

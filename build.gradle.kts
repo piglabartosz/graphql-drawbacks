@@ -26,6 +26,10 @@ repositories {
 
 dependencies {
     implementation("com.expediagroup", "graphql-kotlin-spring-server", "4.1.1")
+    /**
+     * I need this for date type support. Details here: https://expediagroup.github.io/graphql-kotlin/docs/schema-generator/writing-schemas/scalars/#extended-scalars
+     */
+    implementation("com.graphql-java", "graphql-java-extended-scalars", "16.0.1")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
