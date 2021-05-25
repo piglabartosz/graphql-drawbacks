@@ -7,7 +7,7 @@ https://github.com/ExpediaGroup/graphql-kotlin/tree/master/examples/server/sprin
 #Example queries
 ##Filter by max age
 {
-    mentor(maxAge: 18) {
+    mentors(maxAge: 18) {
         name
         sessions {
             secretData

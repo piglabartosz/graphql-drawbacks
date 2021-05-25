@@ -14,11 +14,14 @@ class MentorQuery(
 
     /**
      * 1. Do you want to use Mono or Flux?
-     * Write boilerplate code: https://expediagroup.github.io/graphql-kotlin/docs/schema-generator/execution/async-models/
+     * Write boilerplate configuration code: https://expediagroup.github.io/graphql-kotlin/docs/schema-generator/execution/async-models/
      * 2. You can't use Sort, Pageable
      * 3. Optional arguments? This library does not have any annotation for optional argument
      * so you can't write in this way: sortFieldName: String = "name". You can write only in this way: sortFieldName: OptionalInput<String>,
      * Details here: https://expediagroup.github.io/graphql-kotlin/docs/schema-generator/writing-schemas/arguments/#default-values
+     * 4. Do you want to inject some bean, e.g. current user? Remember about using @GraphQLIgnore annotation.
+     * 5. Do you want to hide secret field from some user roles? You need to make secret field optional in domain class.
+     * Otherwise, create dto for mentor and write converter for domain and dto objects.
      */
     fun mentors(
         maxAge: Int,
