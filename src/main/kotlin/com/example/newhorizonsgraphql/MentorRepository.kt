@@ -1,5 +1,5 @@
 package com.example.newhorizonsgraphql
 
-import org.springframework.data.repository.reactive.ReactiveCrudRepository
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 
-interface MentorRepository : ReactiveCrudRepository<Mentor, String>
+interface MentorRepository : ReactiveMongoRepository<Mentor, String>
