@@ -6,19 +6,26 @@ import java.time.ZonedDateTime
 
 @Component
 class MentorQuery : Query {
-    fun mentor() = Mentor(
-        name = "John",
-        sessions = listOf(
-            Session(
-                time = ZonedDateTime.now(),
-                secretData = "secret"
+    private val mentors = listOf(
+        Mentor(
+            name = "John",
+            age = 18,
+            sessions = listOf(
+                Session(
+                    time = ZonedDateTime.now(),
+                    secretData = "secret"
+                )
             )
         )
     )
+
+    fun mentor(maxAge: Int): List<Mentor> =
+        mentors.filter { it.age <= maxAge }
 }
 
 data class Mentor(
     val name: String,
+    val age: Int,
     val sessions: List<Session>
 )
 
