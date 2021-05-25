@@ -2,34 +2,17 @@ package com.example.newhorizonsgraphql
 
 import com.expediagroup.graphql.server.operations.Query
 import org.springframework.stereotype.Component
-import java.time.ZonedDateTime
+import java.util.concurrent.CompletableFuture
 
 @Component
-class MentorQuery : Query {
-    private val mentors = listOf(
-        Mentor(
-            name = "John",
-            age = 18,
-            sessions = listOf(
-                Session(
-                    time = ZonedDateTime.now(),
-                    secretData = "secret"
-                )
-            )
-        )
-    )
+class MentorQuery(
+    private val mentorRepository: MentorRepository
+) : Query {
 
-    fun mentor(maxAge: Int): List<Mentor> =
-        mentors.filter { it.age <= maxAge }
+    /**
+     * Do you want to use Mono or Flux?
+     * Write boilerplate code: https://expediagroup.github.io/graphql-kotlin/docs/schema-generator/execution/async-models/
+     */
+    fun mentors(maxAge: Int): CompletableFuture<List<Mentor>> =
+        mentorRepository.findAll().filter { it.age <= maxAge }.collectList().toFuture()
 }
-
-data class Mentor(
-    val name: String,
-    val age: Int,
-    val sessions: List<Session>
-)
-
-data class Session(
-    val time: ZonedDateTime,
-    val secretData: String
-)

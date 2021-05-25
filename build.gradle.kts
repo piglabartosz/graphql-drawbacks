@@ -31,6 +31,9 @@ dependencies {
      */
     implementation("com.graphql-java", "graphql-java-extended-scalars", "16.0.1")
 
+    implementation("org.springframework.boot", "spring-boot-starter-data-mongodb-reactive", "2.5.0")
+    implementation("de.flapdoodle.embed", "de.flapdoodle.embed.mongo", "3.0.0")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
